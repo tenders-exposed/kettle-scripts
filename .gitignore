@@ -1,4 +1,4 @@
 *
 !.gitignore
-!.ktr
+!*.ktr
 !README.md
