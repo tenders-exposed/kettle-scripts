@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>2011csv-to-mongo</name>
+    <name>2008-2010csv-to-mongo</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -102,19 +102,20 @@
   <order>
   <hop> <from>Select values</from><to>MongoDB Output 2</to><enabled>Y</enabled> </hop>
   <hop> <from>CSV file input</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Microsoft Excel Output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>CSV file input</name>
     <type>CsvInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x2f;home&#x2f;victor&#x2f;Workbench&#x2f;bigdata&#x2f;elvis&#x2f;2011.csv</filename>
+    <filename>&#x2f;home&#x2f;victor&#x2f;Workbench&#x2f;bigdata&#x2f;elvis&#x2f;2008-2010.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -129,7 +130,7 @@
     <encoding/>
     <fields>
       <field>
-        <name>notice_dispatch_year</name>
+        <name>id</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -137,10 +138,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>notice_dispatch_month</name>
+        <name>additionalIdentifiers</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -148,10 +149,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>notice_dispatch_day</name>
+        <name>award.date&#x2f;x_year</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -159,10 +160,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>doc_number</name>
+        <name>award.date&#x2f;x_month</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -170,10 +171,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>doc_type</name>
+        <name>award.date&#x2f;x_day</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -181,21 +182,21 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>contract_type</name>
+        <name>tender.value&#x2f;amount&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <decimal>,</decimal>
+        <group>.</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>proc_type</name>
+        <name>tender.value&#x2f;currency</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -203,10 +204,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>regulation_type</name>
+        <name>tender.value&#x2f;amount&#x2f;x_amountEur&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -214,10 +215,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>bid_type</name>
+        <name>tender.value&#x2f;x_vatbool</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -225,10 +226,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>award_criteria_type</name>
+        <name>tender.value&#x2f;x_vat&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -236,10 +237,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>framework</name>
+        <name>award.title</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -247,10 +248,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>eu_project</name>
+        <name>award.description</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -258,10 +259,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>GPA</name>
+        <name>awardCriteria</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -269,10 +270,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>country</name>
+        <name>procurementMethod</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -280,10 +281,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>NUTS</name>
+        <name>x_CPV</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -291,10 +292,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>cpv</name>
+        <name>x_framework</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -302,10 +303,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>contract_number</name>
+        <name>x_subcontracted</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -313,10 +314,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>contract_id</name>
+        <name>x_NUTS</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -324,10 +325,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>title_contract</name>
+        <name>procuringEntity&#x2f;name</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -335,10 +336,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>short_contract_description</name>
+        <name>procuringEntity&#x2f;x_slug</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -346,10 +347,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>additional_info</name>
+        <name>procuringEntity&#x2f;x_type</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -357,10 +358,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>tender_value</name>
+        <name>procuringEntity&#x2f;address&#x2f;countryName</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -368,10 +369,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>tender_currency</name>
+        <name>procuringEntity&#x2f;address&#x2f;locality</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -379,10 +380,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>tender_value_eur</name>
+        <name>procuringEntity&#x2f;address&#x2f;streetAddress</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -390,10 +391,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>tender_value_vat</name>
+        <name>procuringEntity&#x2f;address&#x2f;postalCode</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -401,10 +402,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>tender_value_vat_percent</name>
+        <name>procuringEntity&#x2f;address&#x2f;email</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -412,10 +413,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_name</name>
+        <name>procuringEntity&#x2f;address&#x2f;telephone</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -423,10 +424,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_name_slug</name>
+        <name>procuringEntity&#x2f;address&#x2f;x_url</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -434,10 +435,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_address</name>
+        <name>procuringEntity&#x2f;contactPoint&#x2f;name</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -445,10 +446,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_town</name>
+        <name>award.initialValue&#x2f;amount&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -456,10 +457,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_postal_code</name>
+        <name>award.initialValue&#x2f;currency</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -467,10 +468,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_country</name>
+        <name>award.x_initialValue&#x2f;x_amountEur&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -478,10 +479,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_contact_person</name>
+        <name>award.x_initialValue&#x2f;x_vatbool</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -489,10 +490,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_www</name>
+        <name>award.initialValue&#x2f;x_vat&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -500,10 +501,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>authority_type</name>
+        <name>award.value&#x2f;amount&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -511,10 +512,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>auth_type</name>
+        <name>award.value&#x2f;currency</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -522,10 +523,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>contract_title</name>
+        <name>award.value&#x2f;x_amountEur&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -533,10 +534,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>lot</name>
+        <name>award.value&#x2f;x_vatbool</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -544,10 +545,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>nr_bids</name>
+        <name>award.value&#x2f;x_vat&#x3a;number</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -555,10 +556,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>contract_award_day</name>
+        <name>numberOfTenderers</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -566,10 +567,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>contract_award_month</name>
+        <name>suppliers&#x2f;name</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -577,10 +578,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>contract_award_year</name>
+        <name>suppliers&#x2f;x_slug</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -588,10 +589,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>company_name</name>
+        <name>suppliers&#x2f;address&#x2f;countryName</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -599,10 +600,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>company_name_slug</name>
+        <name>suppliers&#x2f;address&#x2f;locality</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -610,10 +611,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>company_address</name>
+        <name>suppliers&#x2f;address&#x2f;streetAddress</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -621,10 +622,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>company_town</name>
+        <name>suppliers&#x2f;address&#x2f;postalCode</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -632,10 +633,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>company_postal_code</name>
+        <name>suppliers&#x2f;address&#x2f;email</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -643,10 +644,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>company_country</name>
+        <name>suppliers&#x2f;address&#x2f;telephone</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -654,10 +655,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>initial_value</name>
+        <name>suppliers&#x2f;address&#x2f;x_url</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -665,10 +666,10 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
-        <name>initial_value_currency</name>
+        <name>x_additionalInformation</name>
         <type>String</type>
         <format/>
         <currency>&#x24;</currency>
@@ -676,106 +677,7 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>initial_value_eur</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>initial_value_vat</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>initial_value_vat_percent</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>contract_value</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>contract_currency</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>contract_value_eur</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>contract_value_vat</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>contract_value_vat_percent</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>url</name>
-        <type>String</type>
-        <format/>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
     </fields>
      <cluster_schema/>
@@ -830,375 +732,7 @@
 
     <mongo_fields>
       <mongo_field>
-         <incoming_field_name>NUTS</incoming_field_name>
-
-         <mongo_doc_path>x_NUTS</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>additional_info</incoming_field_name>
-
-         <mongo_doc_path>x_additionalInformation</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>auth_type</incoming_field_name>
-
-         <mongo_doc_path>procuring_entity.x_type</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>authority_contact_person</incoming_field_name>
-
-         <mongo_doc_path>procuring_entity.contractPoint.name</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>authority_country</incoming_field_name>
-
-         <mongo_doc_path>procuring_entity.address.countryName</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>authority_name</incoming_field_name>
-
-         <mongo_doc_path>procuring_entity.name</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>authority_name_slug</incoming_field_name>
-
-         <mongo_doc_path>procuring_entity.x_slug</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>authority_postal_code</incoming_field_name>
-
-         <mongo_doc_path>procuring_entity.address.postalCode</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>authority_town</incoming_field_name>
-
-         <mongo_doc_path>procuring_entity.address.locality</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>authority_www</incoming_field_name>
-
-         <mongo_doc_path>procuring_entity.address.x_url</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>award_criteria_type</incoming_field_name>
-
-         <mongo_doc_path>awardCriteria</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>company_country</incoming_field_name>
-
-         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.countryName</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>company_name</incoming_field_name>
-
-         <mongo_doc_path>suppliers&#x5b;0&#x5d;.name</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>company_name_slug</incoming_field_name>
-
-         <mongo_doc_path>suppliers&#x5b;0&#x5d;.x_slug</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>company_postal_code</incoming_field_name>
-
-         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.postalCode</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>company_town</incoming_field_name>
-
-         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.locality</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_award_day</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.date.x_day</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_award_month</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.date.x_month</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_award_year</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.date.x_year</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_currency</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.value.currency</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_currency</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.initialValue.currency</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_id</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.award_id</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_number</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.contract_number</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_number</incoming_field_name>
+         <incoming_field_name>additionalIdentifiers</incoming_field_name>
 
          <mongo_doc_path>additionalIdentifiers</mongo_doc_path>
 
@@ -1214,25 +748,9 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>contract_value</incoming_field_name>
+         <incoming_field_name>award.date&#x2f;x_day</incoming_field_name>
 
-         <mongo_doc_path>awards&#x5b;0&#x5d;.value.amount</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_value_eur</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.value.x_amountEur</mongo_doc_path>
+         <mongo_doc_path>awards&#x5b;0&#x5d;.date.x_day</mongo_doc_path>
 
          <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
 
@@ -1246,25 +764,9 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>contract_value_vat</incoming_field_name>
+         <incoming_field_name>award.date&#x2f;x_month</incoming_field_name>
 
-         <mongo_doc_path>awards&#x5b;0&#x5d;.value.x_vatbool</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>contract_value_vat_percent</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.value.x_vat</mongo_doc_path>
+         <mongo_doc_path>awards&#x5b;0&#x5d;.date.x_month</mongo_doc_path>
 
          <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
 
@@ -1278,73 +780,9 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>cpv</incoming_field_name>
+         <incoming_field_name>award.date&#x2f;x_year</incoming_field_name>
 
-         <mongo_doc_path>x_CPV</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>doc_number</incoming_field_name>
-
-         <mongo_doc_path>document_id</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>eu_project</incoming_field_name>
-
-         <mongo_doc_path>x_euProject</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>framework</incoming_field_name>
-
-         <mongo_doc_path>x_framework</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>initial_value</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.initialValue.amount</mongo_doc_path>
+         <mongo_doc_path>awards&#x5b;0&#x5d;.date.x_year</mongo_doc_path>
 
          <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
 
@@ -1358,135 +796,7 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>initial_value_currency</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.initialValue.currency</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>initial_value_eur</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.x_initialValue.x_amountEur</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>initial_value_vat</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.x_initialValue.x_vatbool</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>initial_value_vat_percent</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.value.x_vat</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>initial_value_vat_percent</incoming_field_name>
-
-         <mongo_doc_path>awards&#x5b;0&#x5d;.x_initialValue.x_vat</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>lot</incoming_field_name>
-
-         <mongo_doc_path>x_lot</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>nr_bids</incoming_field_name>
-
-         <mongo_doc_path>numberOfTenderers</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>proc_type</incoming_field_name>
-
-         <mongo_doc_path>procurementMethod</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;set</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>short_contract_description</incoming_field_name>
+         <incoming_field_name>award.description</incoming_field_name>
 
          <mongo_doc_path>awards&#x5b;0&#x5d;.description</mongo_doc_path>
 
@@ -1502,25 +812,9 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>tender_currency</incoming_field_name>
+         <incoming_field_name>award.initialValue&#x2f;amount&#x3a;number</incoming_field_name>
 
-         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.currency</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>tender_value</incoming_field_name>
-
-         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.amount</mongo_doc_path>
+         <mongo_doc_path>awards&#x5b;0&#x5d;.initialValue.amount</mongo_doc_path>
 
          <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
 
@@ -1534,25 +828,9 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>tender_value_eur</incoming_field_name>
+         <incoming_field_name>award.initialValue&#x2f;currency</incoming_field_name>
 
-         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.x_amountEur</mongo_doc_path>
-
-         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
-
-         <update_match_field>N</update_match_field>
-
-         <modifier_update_operation>&#x24;push</modifier_update_operation>
-
-         <modifier_policy>Insert&#x26;Update</modifier_policy>
-
-         <json_field>N</json_field>
-
-      </mongo_field>
-      <mongo_field>
-         <incoming_field_name>tender_value_vat</incoming_field_name>
-
-         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.x_vatbool</mongo_doc_path>
+         <mongo_doc_path>awards&#x5b;0&#x5d;.initialValue.currency</mongo_doc_path>
 
          <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
 
@@ -1566,9 +844,9 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>tender_value_vat_percent</incoming_field_name>
+         <incoming_field_name>award.initialValue&#x2f;currency</incoming_field_name>
 
-         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.x_vat</mongo_doc_path>
+         <mongo_doc_path>awards&#x5b;0&#x5d;.initialValue.currency</mongo_doc_path>
 
          <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
 
@@ -1582,7 +860,23 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>title_contract</incoming_field_name>
+         <incoming_field_name>award.initialValue&#x2f;x_vat&#x3a;number</incoming_field_name>
+
+         <mongo_doc_path>awards&#x5b;0&#x5d;.x_initialValue.x_vat</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>award.title</incoming_field_name>
 
          <mongo_doc_path>awards&#x5b;0&#x5d;.title</mongo_doc_path>
 
@@ -1598,9 +892,649 @@
 
       </mongo_field>
       <mongo_field>
-         <incoming_field_name>url</incoming_field_name>
+         <incoming_field_name>award.value&#x2f;amount&#x3a;number</incoming_field_name>
 
-         <mongo_doc_path>x_url</mongo_doc_path>
+         <mongo_doc_path>awards&#x5b;0&#x5d;.value.amount</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>award.value&#x2f;currency</incoming_field_name>
+
+         <mongo_doc_path>awards&#x5b;0&#x5d;.value.currency</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>award.value&#x2f;x_amountEur&#x3a;number</incoming_field_name>
+
+         <mongo_doc_path>awards&#x5b;0&#x5d;.value.x_amountEur</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>award.value&#x2f;x_vat&#x3a;number</incoming_field_name>
+
+         <mongo_doc_path>awards&#x5b;0&#x5d;.value.x_vat</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>award.value&#x2f;x_vatbool</incoming_field_name>
+
+         <mongo_doc_path>awards&#x5b;0&#x5d;.value.x_vatbool</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>award.x_initialValue&#x2f;x_amountEur&#x3a;number</incoming_field_name>
+
+         <mongo_doc_path>awards&#x5b;0&#x5d;.x_initialValue.x_amountEur</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>award.x_initialValue&#x2f;x_vatbool</incoming_field_name>
+
+         <mongo_doc_path>awards&#x5b;0&#x5d;.x_initialValue.x_vatbool</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>awardCriteria</incoming_field_name>
+
+         <mongo_doc_path>awardCriteria</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>id</incoming_field_name>
+
+         <mongo_doc_path>document_id</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>numberOfTenderers</incoming_field_name>
+
+         <mongo_doc_path>numberOfTenderers</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procurementMethod</incoming_field_name>
+
+         <mongo_doc_path>procurementMethod</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;address&#x2f;countryName</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.address.countryName</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;address&#x2f;email</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.address.email</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;address&#x2f;locality</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.address.locality</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;address&#x2f;postalCode</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.address.postalCode</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;address&#x2f;streetAddress</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.address.streetAddress</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;address&#x2f;telephone</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.address.telephone</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;address&#x2f;x_url</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.address.x_url</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;contactPoint&#x2f;name</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.contractPoint.name</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;name</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.name</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;x_slug</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.x_slug</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>procuringEntity&#x2f;x_type</incoming_field_name>
+
+         <mongo_doc_path>procuring_entity.x_type</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;address&#x2f;countryName</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.countryName</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;address&#x2f;email</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.email</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;address&#x2f;locality</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.locality</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;address&#x2f;postalCode</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.postalCode</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;address&#x2f;streetAddress</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.streetAddress</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;address&#x2f;telephone</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.telephone</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;address&#x2f;x_url</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.address.x_url</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;name</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.name</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>suppliers&#x2f;x_slug</incoming_field_name>
+
+         <mongo_doc_path>suppliers&#x5b;0&#x5d;.x_slug</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>tender.value&#x2f;amount&#x2f;x_amountEur&#x3a;number</incoming_field_name>
+
+         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.x_amountEur</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>tender.value&#x2f;amount&#x3a;number</incoming_field_name>
+
+         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.amount</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>tender.value&#x2f;currency</incoming_field_name>
+
+         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.currency</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>tender.value&#x2f;x_vat&#x3a;number</incoming_field_name>
+
+         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.x_vat</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>tender.value&#x2f;x_vatbool</incoming_field_name>
+
+         <mongo_doc_path>tenders&#x5b;0&#x5d;.value.x_vatbool</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;push</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>x_CPV</incoming_field_name>
+
+         <mongo_doc_path>x_CPV</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>x_NUTS</incoming_field_name>
+
+         <mongo_doc_path>x_NUTS</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>x_additionalInformation</incoming_field_name>
+
+         <mongo_doc_path>x_additionalInformation</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>x_framework</incoming_field_name>
+
+         <mongo_doc_path>x_framework</mongo_doc_path>
+
+         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+
+         <update_match_field>N</update_match_field>
+
+         <modifier_update_operation>&#x24;set</modifier_update_operation>
+
+         <modifier_policy>Insert&#x26;Update</modifier_policy>
+
+         <json_field>N</json_field>
+
+      </mongo_field>
+      <mongo_field>
+         <incoming_field_name>x_subcontracted</incoming_field_name>
+
+         <mongo_doc_path>x_subcontracted</mongo_doc_path>
 
          <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
 
@@ -1625,7 +1559,7 @@
     <name>Select values</name>
     <type>SelectValues</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1633,10 +1567,10 @@
            <schema_name/>
            </partitioning>
     <fields>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>GPA</name>
-        <rename>GPA</rename>
+      <meta>        <name>additionalIdentifiers</name>
+        <rename>additionalIdentifiers</rename>
         <type>String</type>
-        <length>3</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -1648,311 +1582,11 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>NUTS</name>
-        <rename>NUTS</rename>
-        <type>String</type>
-        <length>5</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>additional_info</name>
-        <rename>additional_info</rename>
-        <type>String</type>
-        <length>10884</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>auth_type</name>
-        <rename>auth_type</rename>
-        <type>String</type>
-        <length>1</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_address</name>
-        <rename>authority_address</rename>
-        <type>String</type>
-        <length>179</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_contact_person</name>
-        <rename>authority_contact_person</rename>
-        <type>String</type>
-        <length>277</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_country</name>
-        <rename>authority_country</rename>
-        <type>String</type>
-        <length>2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_name</name>
-        <rename>authority_name</rename>
-        <type>String</type>
-        <length>583</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_name_slug</name>
-        <rename>authority_name_slug</rename>
-        <type>String</type>
-        <length>569</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_postal_code</name>
-        <rename>authority_postal_code</rename>
-        <type>String</type>
-        <length>8</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_town</name>
-        <rename>authority_town</rename>
-        <type>String</type>
-        <length>38</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_type</name>
-        <rename>authority_type</rename>
-        <type>String</type>
-        <length>18</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>authority_www</name>
-        <rename>authority_www</rename>
-        <type>String</type>
-        <length>122</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>award_criteria_type</name>
-        <rename>award_criteria_type</rename>
-        <type>String</type>
-        <length>15</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>bid_type</name>
-        <rename>bid_type</rename>
-        <type>String</type>
-        <length>15</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>company_address</name>
-        <rename>company_address</rename>
-        <type>String</type>
-        <length>479</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>company_country</name>
-        <rename>company_country</rename>
-        <type>String</type>
-        <length>2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>company_name</name>
-        <rename>company_name</rename>
-        <type>String</type>
-        <length>2358</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>company_name_slug</name>
-        <rename>company_name_slug</rename>
-        <type>String</type>
-        <length>2267</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>company_postal_code</name>
-        <rename>company_postal_code</rename>
-        <type>String</type>
-        <length>11</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>company_town</name>
-        <rename>company_town</rename>
-        <type>String</type>
-        <length>42</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>contract_award_day</name>
-        <rename>contract_award_day</rename>
+      </meta>      <meta>        <name>award.date&#x2f;x_day</name>
+        <rename>award.date&#x2f;x_day</rename>
         <type>Integer</type>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-2</length>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -1963,11 +1597,11 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>contract_award_month</name>
-        <rename>contract_award_month</rename>
+      </meta>      <meta>        <name>award.date&#x2f;x_month</name>
+        <rename>award.date&#x2f;x_month</rename>
         <type>Integer</type>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-2</length>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -1978,25 +1612,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>contract_award_year</name>
-        <rename>contract_award_year</rename>
+      </meta>      <meta>        <name>award.date&#x2f;x_year</name>
+        <rename>award.date&#x2f;x_year</rename>
         <type>Integer</type>
-        <length>15</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>contract_currency</name>
-        <rename>contract_currency</rename>
-        <type>String</type>
-        <length>3</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2008,10 +1627,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>contract_id</name>
-        <rename>contract_id</rename>
+      </meta>      <meta>        <name>award.description</name>
+        <rename>award.description</rename>
         <type>String</type>
-        <length>8</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2023,56 +1642,11 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>contract_number</name>
-        <rename>contract_number</rename>
-        <type>String</type>
-        <length>41</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>contract_title</name>
-        <rename>contract_title</rename>
-        <type>String</type>
-        <length>1031</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>contract_type</name>
-        <rename>contract_type</rename>
-        <type>String</type>
-        <length>15</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>contract_value</name>
-        <rename>contract_value</rename>
+      </meta>      <meta>        <name>award.initialValue&#x2f;amount&#x3a;number</name>
+        <rename>award.initialValue&#x2f;amount&#x3a;number</rename>
         <type>Number</type>
-        <length>12</length>
-        <precision>3</precision>
+        <length>-2</length>
+        <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
@@ -2083,25 +1657,25 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>contract_value_eur</name>
-        <rename>contract_value_eur</rename>
+      </meta>      <meta>        <name>award.initialValue&#x2f;currency</name>
+        <rename>award.initialValue&#x2f;currency</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>award.initialValue&#x2f;x_vat&#x3a;number</name>
+        <rename>award.initialValue&#x2f;x_vat&#x3a;number</rename>
         <type>Number</type>
-        <length>12</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>contract_value_vat</name>
-        <rename>contract_value_vat</rename>
-        <type>String</type>
-        <length>4</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2113,25 +1687,25 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>contract_value_vat_percent</name>
-        <rename>contract_value_vat_percent</rename>
+      </meta>      <meta>        <name>award.title</name>
+        <rename>award.title</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>award.value&#x2f;amount&#x3a;number</name>
+        <rename>award.value&#x2f;amount&#x3a;number</rename>
         <type>Number</type>
-        <length>5</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>country</name>
-        <rename>country</rename>
-        <type>String</type>
-        <length>2</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2143,10 +1717,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>cpv</name>
-        <rename>cpv</rename>
+      </meta>      <meta>        <name>award.value&#x2f;currency</name>
+        <rename>award.value&#x2f;currency</rename>
         <type>String</type>
-        <length>224</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2158,85 +1732,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>doc_number</name>
-        <rename>doc_number</rename>
-        <type>String</type>
-        <length>15</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>doc_type</name>
-        <rename>doc_type</rename>
-        <type>String</type>
-        <length>15</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>eu_project</name>
-        <rename>eu_project</rename>
-        <type>String</type>
-        <length>997</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>framework</name>
-        <rename>framework</rename>
-        <type>String</type>
-        <length>30</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>initial_value</name>
-        <rename>initial_value</rename>
+      </meta>      <meta>        <name>award.value&#x2f;x_amountEur&#x3a;number</name>
+        <rename>award.value&#x2f;x_amountEur&#x3a;number</rename>
         <type>Number</type>
-        <length>12</length>
-        <precision>3</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>initial_value_currency</name>
-        <rename>initial_value_currency</rename>
-        <type>String</type>
-        <length>3</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2248,25 +1747,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>initial_value_eur</name>
-        <rename>initial_value_eur</rename>
+      </meta>      <meta>        <name>award.value&#x2f;x_vat&#x3a;number</name>
+        <rename>award.value&#x2f;x_vat&#x3a;number</rename>
         <type>Number</type>
-        <length>12</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>initial_value_vat</name>
-        <rename>initial_value_vat</rename>
-        <type>String</type>
-        <length>4</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2278,25 +1762,25 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>initial_value_vat_percent</name>
-        <rename>initial_value_vat_percent</rename>
+      </meta>      <meta>        <name>award.value&#x2f;x_vatbool</name>
+        <rename>award.value&#x2f;x_vatbool</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>award.x_initialValue&#x2f;x_amountEur&#x3a;number</name>
+        <rename>award.x_initialValue&#x2f;x_amountEur&#x3a;number</rename>
         <type>Number</type>
-        <length>5</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>lot</name>
-        <rename>lot</rename>
-        <type>String</type>
-        <length>22</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2308,55 +1792,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>notice_dispatch_day</name>
-        <rename>notice_dispatch_day</rename>
-        <type>Integer</type>
-        <length>15</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>notice_dispatch_month</name>
-        <rename>notice_dispatch_month</rename>
-        <type>Integer</type>
-        <length>15</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>notice_dispatch_year</name>
-        <rename>notice_dispatch_year</rename>
-        <type>Integer</type>
-        <length>15</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>nr_bids</name>
-        <rename>nr_bids</rename>
+      </meta>      <meta>        <name>award.x_initialValue&#x2f;x_vatbool</name>
+        <rename>award.x_initialValue&#x2f;x_vatbool</rename>
         <type>String</type>
-        <length>50</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2368,10 +1807,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>proc_type</name>
-        <rename>proc_type</rename>
+      </meta>      <meta>        <name>awardCriteria</name>
+        <rename>awardCriteria</rename>
         <type>String</type>
-        <length>1</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2383,10 +1822,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>regulation_type</name>
-        <rename>regulation_type</rename>
+      </meta>      <meta>        <name>id</name>
+        <rename>id</rename>
         <type>String</type>
-        <length>1</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2398,10 +1837,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>short_contract_description</name>
-        <rename>short_contract_description</rename>
+      </meta>      <meta>        <name>numberOfTenderers</name>
+        <rename>numberOfTenderers</rename>
         <type>String</type>
-        <length>3287</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2413,10 +1852,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>tender_currency</name>
-        <rename>tender_currency</rename>
+      </meta>      <meta>        <name>procurementMethod</name>
+        <rename>procurementMethod</rename>
         <type>String</type>
-        <length>3</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2428,40 +1867,310 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>tender_value</name>
-        <rename>tender_value</rename>
+      </meta>      <meta>        <name>procuringEntity&#x2f;address&#x2f;countryName</name>
+        <rename>procuringEntity&#x2f;address&#x2f;countryName</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;address&#x2f;email</name>
+        <rename>procuringEntity&#x2f;address&#x2f;email</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;address&#x2f;locality</name>
+        <rename>procuringEntity&#x2f;address&#x2f;locality</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;address&#x2f;postalCode</name>
+        <rename>procuringEntity&#x2f;address&#x2f;postalCode</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;address&#x2f;streetAddress</name>
+        <rename>procuringEntity&#x2f;address&#x2f;streetAddress</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;address&#x2f;telephone</name>
+        <rename>procuringEntity&#x2f;address&#x2f;telephone</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;address&#x2f;x_url</name>
+        <rename>procuringEntity&#x2f;address&#x2f;x_url</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;contactPoint&#x2f;name</name>
+        <rename>procuringEntity&#x2f;contactPoint&#x2f;name</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;name</name>
+        <rename>procuringEntity&#x2f;name</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;x_slug</name>
+        <rename>procuringEntity&#x2f;x_slug</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>procuringEntity&#x2f;x_type</name>
+        <rename>procuringEntity&#x2f;x_type</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;address&#x2f;countryName</name>
+        <rename>suppliers&#x2f;address&#x2f;countryName</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;address&#x2f;email</name>
+        <rename>suppliers&#x2f;address&#x2f;email</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;address&#x2f;locality</name>
+        <rename>suppliers&#x2f;address&#x2f;locality</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;address&#x2f;postalCode</name>
+        <rename>suppliers&#x2f;address&#x2f;postalCode</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;address&#x2f;streetAddress</name>
+        <rename>suppliers&#x2f;address&#x2f;streetAddress</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;address&#x2f;telephone</name>
+        <rename>suppliers&#x2f;address&#x2f;telephone</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;address&#x2f;x_url</name>
+        <rename>suppliers&#x2f;address&#x2f;x_url</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;name</name>
+        <rename>suppliers&#x2f;name</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>suppliers&#x2f;x_slug</name>
+        <rename>suppliers&#x2f;x_slug</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>tender.value&#x2f;amount&#x2f;x_amountEur&#x3a;number</name>
+        <rename>tender.value&#x2f;amount&#x2f;x_amountEur&#x3a;number</rename>
         <type>Number</type>
-        <length>12</length>
-        <precision>3</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>tender_value_eur</name>
-        <rename>tender_value_eur</rename>
-        <type>Number</type>
-        <length>12</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>tender_value_vat</name>
-        <rename>tender_value_vat</rename>
-        <type>String</type>
-        <length>4</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2473,25 +2182,10 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>tender_value_vat_percent</name>
-        <rename>tender_value_vat_percent</rename>
+      </meta>      <meta>        <name>tender.value&#x2f;amount&#x3a;number</name>
+        <rename>tender.value&#x2f;amount&#x3a;number</rename>
         <type>Number</type>
-        <length>5</length>
-        <precision>2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>title_contract</name>
-        <rename>title_contract</rename>
-        <type>String</type>
-        <length>770</length>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2503,10 +2197,115 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>url</name>
-        <rename>url</rename>
+      </meta>      <meta>        <name>tender.value&#x2f;currency</name>
+        <rename>tender.value&#x2f;currency</rename>
         <type>String</type>
-        <length>64</length>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>tender.value&#x2f;x_vat&#x3a;number</name>
+        <rename>tender.value&#x2f;x_vat&#x3a;number</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>tender.value&#x2f;x_vatbool</name>
+        <rename>tender.value&#x2f;x_vatbool</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>x_CPV</name>
+        <rename>x_CPV</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>x_NUTS</name>
+        <rename>x_NUTS</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>x_additionalInformation</name>
+        <rename>x_additionalInformation</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>x_framework</name>
+        <rename>x_framework</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>x_subcontracted</name>
+        <rename>x_subcontracted</rename>
+        <type>String</type>
+        <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
@@ -2526,7 +2325,499 @@
       </GUI>
     </step>
 
+  <step>
+    <name>Replace weird amounts</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>tender.value&#x2f;amount&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>tender.value&#x2f;amount&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>tender.value&#x2f;amount&#x2f;x_amountEur&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>tender.value&#x2f;x_vat&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>award.initialValue&#x2f;amount&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>award.x_initialValue&#x2f;x_amountEur&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>award.initialValue&#x2f;x_vat&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>award.value&#x2f;amount&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>award.value&#x2f;x_amountEur&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>award.value&#x2f;x_vat&#x3a;number</in_stream_name>
+        <out_stream_name/>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x2b;&#x5c;.&#x5b;0-9&#x5d;&#x7b;2,2&#x7d;</replace_string>
+        <replace_by_string/>
+        <set_empty_string>Y</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>72</xloc>
+      <yloc>61</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Microsoft Excel Output</name>
+    <type>ExcelOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <encoding>UTF-8</encoding>
+    <append>Y</append>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>&#x2f;home&#x2f;victor&#x2f;Workbench&#x2f;bigdata&#x2f;elvis&#x2f;failed&#x2f;2008-2010</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <create_parent_folder>Y</create_parent_folder>
+      <split>N</split>
+      <add_date>Y</add_date>
+      <add_time>Y</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <nullisblank>N</nullisblank>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <splitevery>0</splitevery>
+      <usetempfiles>N</usetempfiles>
+      <tempdirectory/>
+      </file>
+    <template>
+      <enabled>N</enabled>
+      <append>N</append>
+      <filename>template.xls</filename>
+    </template>
+    <fields>
+      <field>
+        <name>id</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>additionalIdentifiers</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.date&#x2f;x_year</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.date&#x2f;x_month</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.date&#x2f;x_day</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>tender.value&#x2f;amount&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>tender.value&#x2f;currency</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>tender.value&#x2f;amount&#x2f;x_amountEur&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>tender.value&#x2f;x_vatbool</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>tender.value&#x2f;x_vat&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.title</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.description</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>awardCriteria</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procurementMethod</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>x_CPV</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>x_framework</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>x_subcontracted</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>x_NUTS</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;name</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;x_slug</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;x_type</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;address&#x2f;countryName</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;address&#x2f;locality</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;address&#x2f;streetAddress</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;address&#x2f;postalCode</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;address&#x2f;email</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;address&#x2f;telephone</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;address&#x2f;x_url</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>procuringEntity&#x2f;contactPoint&#x2f;name</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.initialValue&#x2f;amount&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.initialValue&#x2f;currency</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.x_initialValue&#x2f;x_amountEur&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.x_initialValue&#x2f;x_vatbool</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.initialValue&#x2f;x_vat&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.value&#x2f;amount&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.value&#x2f;currency</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.value&#x2f;x_amountEur&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.value&#x2f;x_vatbool</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>award.value&#x2f;x_vat&#x3a;number</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>numberOfTenderers</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;name</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;x_slug</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;address&#x2f;countryName</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;address&#x2f;locality</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;address&#x2f;streetAddress</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;address&#x2f;postalCode</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;address&#x2f;email</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;address&#x2f;telephone</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>suppliers&#x2f;address&#x2f;x_url</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>x_additionalInformation</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>error_amount</name>
+        <type>Integer</type>
+        <format/>
+      </field>
+      <field>
+        <name>error_descriptions</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>error_fields</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>error_codes</name>
+        <type>String</type>
+        <format/>
+      </field>
+    </fields>
+    <custom>
+    <header_font_name>arial</header_font_name>
+    <header_font_size>10</header_font_size>
+    <header_font_bold>N</header_font_bold>
+    <header_font_italic>N</header_font_italic>
+    <header_font_underline>no</header_font_underline>
+    <header_font_orientation>horizontal</header_font_orientation>
+    <header_font_color>black</header_font_color>
+    <header_background_color>none</header_background_color>
+    <header_row_height>255</header_row_height>
+    <header_alignment>left</header_alignment>
+    <header_image/>
+    <row_font_name>arial</row_font_name>
+    <row_font_size>10</row_font_size>
+    <row_font_color>black</row_font_color>
+    <row_background_color>none</row_background_color>
+      </custom>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>359</xloc>
+      <yloc>147</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step_error_handling>
+      <error>
+        <source_step>Select values</source_step>
+        <target_step>Microsoft Excel Output</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename>error_amount</nr_valuename>
+        <descriptions_valuename>error_descriptions</descriptions_valuename>
+        <fields_valuename>error_fields</fields_valuename>
+        <codes_valuename>error_codes</codes_valuename>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Replace weird amounts</source_step>
+        <target_step>Text file output</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
